@@ -1,80 +1,72 @@
 ---
-# Leave the homepage title empty to use the site title
-title:
+# 这是你的主入口，合并了幻灯片和长页面
+title: ""
 date: 2022-10-24
 type: landing
 
 sections:
+  # 第一部分：从原 home/index.md 搬过来的 Slider
+  - block: slider
+    content:
+      slides:
+        - title: 👋 Welcome to the F² Lab
+          content: Flexible and Ferroic Systems Laboratory
+          align: center
+          background:
+            color: '#666' # 先用颜色保命，防止没图片报错
+        - title: World-Class Semiconductor Lab
+          content: 'Advancing the future of soft robotics.'
+          align: right
+          background:
+            color: '#333'
+          link:
+            icon: graduation-cap
+            icon_pack: fas
+            text: Join Us
+            url: ./contact/
+    design:
+      is_fullscreen: true
+      loop: true
+      interval: 5000
+
+  # 第二部分：从原 _index.md 搬过来的 Hero
   - block: hero
     content:
       title: |
-        Wowchemy
+        Zheng Haining
         Research Group
-      image:
-        filename: welcome.jpg
       text: |
-        <br>
-        
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
-  
+        The **Zheng Research Group** has been a center of excellence for materials research since 2016.
+    design:
+      background:
+        color: '#f7f7f7'
+
+  # 第三部分：新闻列表
   - block: collection
     content:
       title: Latest News
-      subtitle:
-      text:
       count: 5
-      filters:
-        author: ''
-        category: ''
-        exclude_featured: false
-        publication_type: ''
-        tag: ''
-      offset: 0
-      order: desc
       page_type: post
     design:
       view: card
       columns: '1'
-  
-  - block: markdown
-    content:
-      title:
-      subtitle: ''
-      text:
-    design:
-      columns: '1'
-      background:
-        image: 
-          filename: coders.jpg
-          filters:
-            brightness: 1
-          parallax: false
-          position: center
-          size: cover
-          text_color_light: true
-      spacing:
-        padding: ['20px', '0', '20px', '0']
-      css_class: fullscreen
 
+  # 第四部分：论文列表
   - block: collection
     content:
       title: Latest Preprints
-      text: ""
       count: 5
       filters:
         folders:
           - publication
-        publication_type: 'article'
     design:
       view: citation
       columns: '1'
 
+  # 第五部分：按钮
   - block: markdown
     content:
       title:
-      subtitle:
       text: |
         {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
-    design:
-      columns: '1'
 ---
