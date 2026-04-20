@@ -1,86 +1,80 @@
 ---
-title: "F² Lab: Flexible & Ferroic Systems"
+# Leave the homepage title empty to use the site title
+title:
 date: 2022-10-24
 type: landing
 
 sections:
-  # 1. 顶部大图幻灯片 (保留你最喜欢的动态效果)
-  - block: slider
+  - block: hero
     content:
-      slides:
-        - title: 👋 Welcome to the F² Lab
-          content: "Flexible and Ferroic Systems Laboratory"
-          align: center
-          background:
-            image:
-              filename: welcome.jpg # 建议换成你最美的实验室照片
-              filters:
-                brightness: 0.7
-        - title: "World-Class Semiconductor Research"
-          content: "Advancing the future of soft robotics and tactile sensing."
-          align: right
-          background:
-            image:
-              filename: coders.jpg
-              filters:
-                brightness: 0.5
-          link:
-            icon: graduation-cap
-            icon_pack: fas
-            text: Join Us
-            url: ./contact/
-    design:
-      is_fullscreen: true
-      loop: true
-      interval: 5000
-
-  # 2. 实验室动态 (自动抓取 news 文件夹)
+      title: |
+        Wowchemy
+        Research Group
+      image:
+        filename: welcome.jpg
+      text: |
+        <br>
+        
+        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+  
   - block: collection
     content:
       title: Latest News
-      subtitle: "Recent updates from our lab"
-      count: 3
+      subtitle:
+      text:
+      count: 5
+      filters:
+        author: ''
+        category: ''
+        exclude_featured: false
+        publication_type: ''
+        tag: ''
+      offset: 0
+      order: desc
       page_type: post
     design:
-      view: card # 卡片式布局，看起来更现代
-      columns: '3'
-
-  # 3. 视觉间隔 (插入一张全屏质感图，增加滚动时的呼吸感)
+      view: card
+      columns: '1'
+  
   - block: markdown
     content:
       title:
-      text: ""
+      subtitle: ''
+      text:
     design:
       columns: '1'
       background:
         image: 
-          filename: contact.jpg
-          parallax: true # 开启开启视差滚动效果
+          filename: coders.jpg
           filters:
-            brightness: 0.6
+            brightness: 1
+          parallax: false
+          position: center
+          size: cover
+          text_color_light: true
       spacing:
-        padding: ['100px', '0', '100px', '0']
+        padding: ['20px', '0', '20px', '0']
+      css_class: fullscreen
 
-  # 4. 最新论文展示
   - block: collection
     content:
-      title: Featured Publications
+      title: Latest Preprints
+      text: ""
       count: 5
       filters:
         folders:
           - publication
+        publication_type: 'article'
     design:
-      view: citation # 学术引用格式
+      view: citation
       columns: '1'
 
-  # 5. 底部呼吁按钮 (跳转到成员页面)
   - block: markdown
     content:
       title:
+      subtitle:
       text: |
-        {{% cta cta_link="./people/" cta_text="Meet our team →" %}}
+        {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
     design:
       columns: '1'
-      spacing:
-        padding: ['50px', '0', '50px', '0']
 ---
