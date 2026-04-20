@@ -6,9 +6,9 @@
 # Appearance
 
 appearance:
-  theme_day: ocean
+  theme_day: sky
   theme_night:
-  font: native
+  font: roboto
   font_size: L
 
 # SEO
@@ -48,6 +48,7 @@ footer:
     notice: '© {year} Haining Zheng. All rights reserved.'
     license:
       enable: false  # 更改版权信息
+      powered_by: false
 
 # Localization
 
