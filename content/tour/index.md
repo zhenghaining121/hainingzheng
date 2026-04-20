@@ -1,5 +1,5 @@
 ---
-title: Tour
+title: Home
 date: 2022-10-24
 
 type: landing
@@ -8,8 +8,8 @@ sections:
   - block: slider
     content:
       slides:
-      - title: 👋 Welcome to the group
-        content: Take a look at what we're working on...
+      - title: 👋 Welcome to the F2 Lab
+        content: Flexible and Ferroic Systems Laboratory
         align: center
         background:
           image:
