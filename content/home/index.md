@@ -1,11 +1,11 @@
 ---
-# 首页配置文件 - F² Lab
+# 首页长页面配置 - F² Lab
 title: ""
 date: 2022-10-24
 type: landing
 
 sections:
-  # --- 第一部分：顶部全屏幻灯片 (Slider) ---
+  # 1. 顶部全屏幻灯片 (Slider)
   - block: slider
     content:
       slides:
@@ -30,7 +30,7 @@ sections:
             position: center
             color: '#555'
         - title: World-Class Semiconductor Lab
-          content: 'Advancing the future of soft robotics.'
+          content: 'Just opened last month!'
           align: right
           background:
             image:
@@ -50,7 +50,7 @@ sections:
       loop: true
       interval: 5000
 
-  # --- 第二部分：文字简介 (Hero) ---
+  # 2. 文字简介模块 (Hero)
   - block: hero
     content:
       title: |
@@ -59,25 +59,36 @@ sections:
       image:
         filename: welcome.jpg
       text: |
-        The **Zheng Research Group** focuses on flexible electronics and ferroic systems, striving for excellence in research and practice.
+        The **Zheng Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
     design:
       background:
-        color: '#f7f7f7' # 稍微带一点灰，区分开上面的大图
+        color: '#f7f7f7'
 
-  # --- 第三部分：最新新闻 (Latest News) ---
+  # 3. 最新动态 (Latest News)
   - block: collection
     content:
       title: Latest News
+      subtitle: ""
+      text: ""
       count: 5
+      filters:
+        author: ''
+        category: ''
+        exclude_featured: false
+        publication_type: ''
+        tag: ''
+      offset: 0
+      order: desc
       page_type: post
     design:
       view: card
       columns: '1'
 
-  # --- 第四部分：视差背景过渡 ---
+  # 4. 视觉过渡背景 (Markdown + Background)
   - block: markdown
     content:
       title: ""
+      subtitle: ''
       text: ""
     design:
       columns: '1'
@@ -92,11 +103,13 @@ sections:
           text_color_light: true
       spacing:
         padding: ['100px', '0', '100px', '0']
+      css_class: fullscreen
 
-  # --- 第五部分：论文列表 (Preprints) ---
+  # 5. 最新论文 (Latest Preprints)
   - block: collection
     content:
       title: Latest Preprints
+      text: ""
       count: 5
       filters:
         folders:
@@ -106,10 +119,11 @@ sections:
       view: citation
       columns: '1'
 
-  # --- 第六部分：加入我们按钮 ---
+  # 6. 底部团队跳转按钮
   - block: markdown
     content:
       title: ""
+      subtitle: ""
       text: |
         {{% cta cta_link="./people/" cta_text="Meet the team →" %}}
     design:
