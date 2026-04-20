@@ -5,13 +5,13 @@
 
 main:
   - name: Home
-    url: Home
+    url: home
     weight: 10
   - name: News
-    url: News
+    url: news
     weight: 20
   - name: Research
-    url: Research
+    url: research
     weight: 30
   - name: People
     url: people
@@ -20,8 +20,8 @@ main:
     url: publication
     weight: 50
   - name: Gallery
-    url: Gallery
+    url: gallery
     weight: 60
   - name: Join Us
-    url: Join Us
+    url: join Us
     weight: 70
