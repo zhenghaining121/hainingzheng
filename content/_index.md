@@ -457,21 +457,21 @@ sections:
       text: |
         <div class="research-container">
           <div class="research-card">
-            <a href="/research/"><img src="./media/res1.png" alt="Research 1"style="width: 92%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
+            <a href="./research/"><img src="./media/res1.png" alt="Research 1"style="width: 92%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">Design and Synthsis of Ferroic and Magnetoelectric Crystals</h3>
               <p style="text-align: justify;">We focus our attention on providing a fundamental understanding of the interplay between structural dimensionality and ferroic properties, as well as demonstrating the implementation of magnetoelectric crystals in advanced functional electronics.</p>
             </div>
           </div>
           <div class="research-card">
-            <a href="/research/#Flexible"><img src="./media/res2.png" alt="Research 2"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 25px auto 0px auto;"></a>
+            <a href="./research/#Flexible"><img src="./media/res2.png" alt="Research 2"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 25px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">AI-Driven Flexible & Wearable Magnetoelectric Devices</h3>
               <p style="text-align: justify;">Our research aims to bridge the gap between flexible magnetoelectric interfaces and intelligent signal processing. By leveraging AI-driven analytics, we develop wearable platforms capable of low-crosstalk piezoelectric sensing and closed-loop human-machine interaction.</p>
             </div>
           </div>
           <div class="research-card">
-            <a href="/research/#Spintronics"><img src="./media/res3.png" alt="Research 3"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
+            <a href="./research/#Spintronics"><img src="./media/res3.png" alt="Research 3"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">Spin Dynamics and Quantum Interference Effects</h3>
               <p style="text-align: justify;">Our work is dedicated to exploring spin quantum characteristics, with a primary focus on the spin relaxation dynamics and quantum interference effects. We aim to establish a robust foundation for next-generation quantum computing and advanced spintronic applications.</p>
@@ -554,7 +554,7 @@ sections:
       title: "Latest News"
       text: |
         <div class="home-news-container">
-          <a href="/zhenghaining/news/1/" class="news-item-link">
+          <a href="./zhenghaining/news/1/" class="news-item-link">
             <div class="news-item-island">
               <div class="news-left-content">
                 <div class="news-date-box">
