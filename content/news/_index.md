@@ -9,7 +9,7 @@ title: "News"
   <div class="view-compact" style="padding: 30px 30px !important; margin-bottom: 50px !important; min-height: 0 !important; align-items: center !important;">
     <div class="media-body">
       <div class="section-subheading article-title mb-0 mt-0">
-        <a href="/news/1/">The Official Website for Our Research Group is Now Live!</a>
+        <a href="./news/1/">The Official Website for Our Research Group is Now Live!</a>
       </div>
       <div class="article-style" style="font-size: 0.8rem">
       Welcome to our new official website! We invite you to stay updated on our latest research initiatives, team milestones, and open positions on this homepage.
