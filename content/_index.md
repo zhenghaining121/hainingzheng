@@ -554,7 +554,7 @@ sections:
       title: "Latest News"
       text: |
         <div class="home-news-container">
-          <a href="./zhenghaining/news/1/" class="news-item-link">
+          <a href="./news/1/" class="news-item-link">
             <div class="news-item-island">
               <div class="news-left-content">
                 <div class="news-date-box">
