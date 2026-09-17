@@ -7,7 +7,7 @@ date: "2026-09-17"
   
   <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e5e7eb; padding-bottom: 30px; margin-bottom: 40px;">   
     <div style="padding-left: 30px; font-size: 0.85rem; color: #666; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
-      <strong>Published:</strong> June 14, 2026
+      <strong>Published:</strong> September 17, 2026
     </div>  
     <div style=" background: rgba(224, 234, 253, 0.6) !important;  color: #002b7a !important; padding: 5px 14px !important; border-radius: 6px !important; font-size: 0.8rem !important; margin-right:30px !important; font-weight: 600 !important; border: 1px solid rgba(0, 44, 122, 0.1) !important; backdrop-filter: blur(4px); letter-spacing: 0.3px; padding-right: 30px;">
       · Lab News · 
