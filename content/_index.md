@@ -567,7 +567,7 @@ sections:
                 </div>
               </div>
               <div class="news-right-media">
-                <img src=".news/1/news1.png" alt="News Image">
+                <img src="./news/1/news1.png" alt="News Image">
                 <div class="news-action-arrow">
                   <i class="fas fa-chevron-right"></i>
                 </div>
