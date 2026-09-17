@@ -486,7 +486,7 @@ sections:
           <div style="text-align:center;">
             <div style="display: inline-block; position: relative; max-width: 1300px; margin: 0 auto; padding-top: 10px;">
               <video
-                src="./media/robotics.mp4"
+                src="./media/Robotics.mp4"
                 controls
                 playsinline
                 autoplay
