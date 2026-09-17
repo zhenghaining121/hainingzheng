@@ -9,7 +9,7 @@ title: "News"
   <div class="view-compact" style="padding: 30px 30px !important; margin-bottom: 50px !important; min-height: 0 !important; align-items: center !important;">
     <div class="media-body">
       <div class="section-subheading article-title mb-0 mt-0">
-        <a href="./news/1/">The Official Website for Our Research Group is Now Live!</a>
+        <a href=".\news\1\">The Official Website for Our Research Group is Now Live!</a>
       </div>
       <div class="article-style" style="font-size: 0.8rem">
       Welcome to our new official website! We invite you to stay updated on our latest research initiatives, team milestones, and open positions on this homepage.
@@ -20,7 +20,7 @@ title: "News"
     </div>
     <div class="ml-3" style="flex: 0 0 180px; margin-top: 0; margin-bottom: 0; display: flex; align-items: center;">
       <!-- 图片引用 -->
-      <img src="../news/1/news1.png" alt="Featured Image" 
+      <img src="..\news\1\news1.png" alt="Featured Image" 
            style="width: 110%; max-height: 240px; margin-top: 25px; margin-bottom: 10px; object-fit: contain; border-radius: 4px;">
     </div>
   </div>
