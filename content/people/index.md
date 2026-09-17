@@ -48,14 +48,14 @@ title: "Principle Investigator"
   <div class="profile-right-col">
     <div class="bio-section">
       <p class="bio-text">
-        <strong>Prof. Zheng Haining</strong> is a <strong>Young Chief Professor</strong>, doctoral supervisor, in the School of Physics at <strong>Southeastern University</strong> and has been selected for the National High-Level Young Talents Program. She received her Ph.D. from the National University of Singapore (NUS) under the supervision of Prof. Loh Kian Ping. She subsequently worked as a Postdoctoral Research Fellow at Nanyang Technological University (NTU), collaborating with Prof. Lee Pooi See.
+        <strong>Prof. Zheng Haining</strong> is a <strong>Young Chief Professor</strong>, doctoral supervisor, in the School of Physics at <strong>Southeastern University</strong>. She received her Ph.D. from the National University of Singapore (NUS) under the supervision of Prof. Loh Kian Ping. She subsequently worked as a Postdoctoral Research Fellow at Nanyang Technological University (NTU), collaborating with Prof. Lee Pooi See.
       </p>   
       <p class="bio-text">
         Prof. Zheng’s research primarily focuses on the intrinsic physical mechanisms of novel ferroic materials and their cross-disciplinary applications in flexible magnetoelectric information devices. Her research was selected as one of the "<strong>Top 50 Physics Articles</strong>" by <em>Nat. Commun.</em> and featured as a cover in <em>Matter</em>. 
         Prof. Zheng serves on the <strong>Youth Editorial Boards</strong> of journals such as <em>Engineered Science</em>, <em>Innovation Informatics</em>, and <em>Rare Metals</em>. She is also the recipient of several prestigious honors, including the Micron Women in Engineering, Science, and Technology (WiEST) Development Grant and the Chinese Government Award for Outstanding Self-Financed Students Abroad.
       </p>
       <p class="bio-text" style="margin-top: 36px !important;" >
-        郑海宁，东南大学物理学院青年首席教授，博士生导师，入选国家高层次青年人才计划。博士毕业于新加坡国立大学，师从新加坡科学院院士 Loh Kian Ping 教授；随后赴南洋理工大学从事博士后研究，合作导师为南洋理工大学副校长 Lee Pooi See 教授。她主要从事新型铁性材料的本征物理机制及其在柔性磁电信息器件中的交叉应用研究。相关成果被 Nat. Commun. 评选为当年“50篇最佳物理学论文”，并被 Matter 期刊选为当期封面文章。此外，她担任 Engineered Science、Innovation Informatics、Rare Metals 等期刊的青年编委，并曾获“镁光科技女性科学家奖”、国家优秀自费留学生奖学金等多项荣誉。
+        郑海宁，东南大学物理学院青年首席教授，博士生导师。博士毕业于新加坡国立大学，师从新加坡科学院院士 Loh Kian Ping 教授；随后赴南洋理工大学从事博士后研究，合作导师为南洋理工大学副校长 Lee Pooi See 教授。她主要从事新型铁性材料的本征物理机制及其在柔性磁电信息器件中的交叉应用研究。相关成果被 Nat. Commun. 评选为当年“50篇最佳物理学论文”，并被 Matter 期刊选为当期封面文章。此外，她担任 Engineered Science、Innovation Informatics、Rare Metals 等期刊的青年编委，并曾获“镁光科技女性科学家奖”、国家优秀自费留学生奖学金等多项荣誉。
       </p>
     </div>      
     <div class="sub-info-grid">
@@ -83,10 +83,6 @@ title: "Principle Investigator"
         <h3 class="block-title"><i class="fas fa-trophy"></i> Honors</h3>
         <ul class="info-list bulleted-timeline">
           <li>
-            <span class="list-duration">2026</span>
-            <span class="list-main">国家自然科学基金项目（海外）</span>
-            <span class="list-sub"> Distinguished Young Scholars of the National Natural Science Foundation of China (Overseas)</span>
-                    <li>
             <span class="list-duration">2024</span>
             <span class="list-main">镁光科技女性科学家奖</span>
             <span class="list-sub">Micron Women in Engineering, Science, and Technology (WiEST) Development Grant</span>
