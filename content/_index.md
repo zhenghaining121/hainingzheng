@@ -554,7 +554,7 @@ sections:
       title: "Latest News"
       text: |
         <div class="home-news-container">
-          <a href="./1/" class="news-item-link">
+          <a href=".news/1/" class="news-item-link">
             <div class="news-item-island">
               <div class="news-left-content">
                 <div class="news-date-box">
@@ -567,7 +567,7 @@ sections:
                 </div>
               </div>
               <div class="news-right-media">
-                <img src="./1/news1.png" alt="News Image">
+                <img src=".news/1/news1.png" alt="News Image">
                 <div class="news-action-arrow">
                   <i class="fas fa-chevron-right"></i>
                 </div>
