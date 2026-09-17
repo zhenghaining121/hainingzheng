@@ -1,6 +1,6 @@
 ---
 title: "The Official Website for Our Research Group is Now Live!"
-date: ""
+date: "2026-09-17"
 ---
 
 <div class="universal-wrapper" style="max-width: 1300px !important; margin-left: auto !important; margin-right: auto !important; padding: 40px 20px; background: #fafbfc; position: relative;">
