@@ -29,7 +29,7 @@ date: "2026-09-17"
   </article>
 
   <div style="padding-right: 30px;border-top: 1px solid #e5e7eb; padding-top: 25px; margin-top: 50px; text-align: right;">
-    <a href="../news/" style="color: #002b7a; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#004dc0';" onmouseout="this.style.color='#002b7a';">
+    <a href="../news/1/" style="color: #002b7a; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#004dc0';" onmouseout="this.style.color='#002b7a';">
       Back to News List ↗
     </a>
   </div>
