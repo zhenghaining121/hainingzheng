@@ -22,6 +22,6 @@ main:
   - name: Gallery
     url: gallery
     weight: 60
-  - name: Join Us
-    url: join Us
+  - name: Contact
+    url: Contact
     weight: 70

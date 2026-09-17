@@ -1,0 +1,22 @@
+#main-navbar {
+  background: transparent;
+  transition: background 0.3s;
+  box-shadow: none;
+}
+
+#main-navbar.scrolled {
+  background: #00174d; /* 你可以换成你想要的颜色 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* 保证导航栏内容颜色在透明和有色背景下都清晰可见，可根据需要调整 */
+#main-navbar .navbar-title {
+  color: #fff;
+  transition: color 0.3s;
+}
+#main-navbar:not(.scrolled) .navbar-title {
+  color: #fff;
+}
+#main-navbar.scrolled .navbar-title {
+  color: #fff;
+}

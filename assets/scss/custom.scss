@@ -1,0 +1,714 @@
+@import "custom-navbar.scss";
+
+/* ==========================================
+   导航栏和全局字体样式调整
+   ========================================== */
+
+   
+   
+/* 1. 基础质感与统一的 #00206f 深蓝主题 */
+.navbar {
+  
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  background: linear-gradient(
+  to right, 
+  rgba(172, 201, 255, 0.13) 0%,    /* 左侧：微微偏蓝 */
+  rgba(255, 255, 255, 0.95) 30%,   /* 中间偏左：丝滑过渡到纯白 */
+  rgba(255, 255, 255, 0.95) 70%,   /* 中间偏右：保持高亮纯白 */
+  rgba(172, 201, 255, 0.16) 100%   /* 右侧：对称的微微偏蓝 */
+) !important;
+
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 31, 111, 0.095) !important;
+  box-shadow: 0 4px 20px rgba(0, 31, 111, 0.038) !important;
+  padding: 12px 35px !important;
+  
+  /* 固定在顶部 */
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+
+  /* 💎 核心修改：大幅延长状态切换的过渡时间（0.6秒），让滑出/滑进极其丝滑、不突兀 */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+              background 0.3s ease !important;
+}
+
+/* 1. 课题组大字名称：提升字间距，换用更有质感的高级无衬线字族 */
+.navbar-brand, .nav-filename {
+  color: #00206f !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.3px !important; /* 微调字距，使其视觉更紧凑高档 */
+}
+
+/* 2. 菜单项默认样式：升级精致字体，并为金线动画做准备 */
+.nav-item .nav-link {
+  color: #334155 !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.2px !important; /* 略微拉开字距，更具呼吸感 */
+  padding: 6px 0 !important;        /* 👈 核心修改：把左右 padding 腾出来给内距，改用 margin 撑开，确保金线宽度与文字完美等宽 */
+  margin: 0 16px !important;       
+  display: inline-block;
+  position: relative !important;     /* 为金线绝对定位做基准 */
+  
+  /* 动画平滑度保持 */
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), 
+              color 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 3. 💎 核心特效：利用 ::after 伪元素生成一条从中间向两边优雅延展的“阻尼感金线” */
+.nav-item .nav-link::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 100% !important;
+  height: 1.5px !important;            /* 金线的厚度 */
+  bottom: -2px !important;           /* 金线距离文字底部的距离 */
+  left: 0 !important;
+  background-color: #b39b6e !important; /* 您专属的高级琥珀金 */
+  
+  /* 初始状态：缩短为 0，完全隐形 */
+  transform: scaleX(0) !important;
+  transform-origin: center !important; /* 从中间向两边展开，如果喜欢从左往右开，可以改成 left */
+  transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* 4. 激活与悬停状态：文字变深蓝、整体上浮，同时金线丝滑展出 */
+.nav-item:hover .nav-link, .nav-item.active .nav-link {
+  color: #00206f !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 当鼠标放上去或处于激活页时，金线瞬间水平展开到 100% */
+.nav-item:hover .nav-link::after, .nav-item.active .nav-link::after {
+  transform: scaleX(1) !important;
+}
+
+/* 5. 搜索图标样式对齐 */
+.nav-search-icon, .navbar .fa-search {
+  color: #00206f !important;
+  transition: transform 0.2s ease !important;
+}
+.nav-item:hover .nav-search-icon {
+  transform: translateY(-2px) !important; /* 搜索图标跟随菜单一起同步上浮 */
+}
+
+/* ==========================================
+   🚀 策略 A：针对支持高级 CSS 滚动动画的浏览器（全自动控制）
+   ========================================== */
+@supports (animation-timeline: scroll()) {
+  
+
+  /* --- 🌟 其他子页（News, Research 等）交互逻辑 --- */
+  /* 一开始直接完美显示，向下滚动后慢速向上推走隐藏 */
+  body:not(.home) .navbar {
+    animation: sub-nav-hide linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 500px; /* 在顶部 0 到 400px 滚动区间内慢速收回 */
+  }
+  @keyframes sub-nav-hide {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100%); opacity: 0; }
+  }
+}
+
+
+
+
+/* ==========================================
+   🚀 策略 B：针对经典 Academic 主题自带类名的后备平滑控制
+   ========================================== */
+/* 如果框架本身在滚动时会给 body 加上类名（例如 .page-scrolled），以下代码能双重保障生效 */
+
+/* 首页：未滚动时隐藏，滚动后显现 */
+body.home:not(.page-scrolled) .navbar {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+}
+body.home.page-scrolled .navbar {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* 子页：未滚动时显示，滚动后隐藏 */
+body:not(.home).page-scrolled .navbar {
+  transform: translateY(-100%) !important;
+  opacity: 0 !important;
+}
+
+/* 以下是首页幻灯片设计 */
+
+/* 让幻灯片容器真正占据全屏高度（减去导航栏高度） */
+.carousel-item {
+    height: 100vh !important; 
+    min-height: 500px;
+    background-color: transparent !important; /* 防止背景色干扰 */
+}
+
+/* --- 核心：实现如同参考图一样的淡入淡出 (Fade) 柔和渐变效果 --- */
+.carousel.slide {
+    .carousel-item {
+        opacity: 0 !important;
+        transition: opacity 1.5s ease-in-out !important; /* 1.5秒渐变，极其高雅丝滑 */
+        display: block !important;
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .carousel-item.active {
+        opacity: 1 !important;
+        position: relative !important;
+        z-index: 1;
+    }
+}
+
+/* ==================================================================
+   1. 首页大标题样式（Flexible & Ferroic Systems Laboratory）
+   ================================================================== */
+.hero-main-title {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 3.5rem !important;  /* 保持 3.5rem 学术大格局感 */
+    font-weight: 300 !important;   /* 舒展的非粗体 */
+    letter-spacing: 1.5px !important; /* 字母间距轻微拉开 */
+    color: #ffffff !important;     /* 强制亮白色 */
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.6) !important; /* 核心：对抗背景电路图 */
+    margin-bottom: 25px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+}
+
+/* ==================================================================
+   2. 首页核心愿景（Our Vision is to...）的正文描述样式
+   ================================================================== */
+.hero-vision-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    font-size: 1.3rem !important;
+    font-weight: 400 !important;
+    line-height: 1.75 !important;
+    max-width: 850px !important;    /* 控制长句的换行宽度，防止铺得过满 */
+    margin-left: auto !important;   /* 横向完美居中 */
+    margin-right: auto !important;
+    color: rgba(255, 255, 255, 0.95) !important; /* 恢复为亮白色（之前误设为了深蓝色导致看不见） */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+    text-align: center !important;
+}
+
+
+
+/* ==================================================================
+   4. 进阶：如果你将来需要它实现多图定时“换页/幻灯片”效果 
+   ================================================================== */
+/* 当你未来想实现幻灯片切换时，只需要用简单的 JavaScript 动态改变 
+   .academic-hero-container 的背景图，或者复制下面这套 CSS 动画自动轮播。
+   目前它会默认静止在你的第一张电路图。
+*/
+@keyframes academicSlider {
+    0%, 45% {
+        background-image: linear-gradient(rgba(0, 31, 111, 0.425), rgba(0, 32, 111, 0.35)), url('media/bg1.png') !important;
+    }
+    55%, 100% {
+        background-image: linear-gradient(rgba(0, 32, 111, 0.45), rgba(0, 32, 111, 0.35)), url('media/bg1.png') !important;
+    }
+}
+
+
+/* 隐藏页面底部自动生成的社交分享按钮 */
+.share-box {
+  display: none !important;
+}
+
+.academic-hero-container {
+    animation: academicSlider 10s infinite ease-in-out !important;
+}
+
+
+/* 2. 模块标题 (如 Latest News, Research 等) */
+.section-heading h1 {
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 1.5rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px !important;
+}
+
+/* 3. 顶部导航栏菜单 (Home, News, People...) */
+.navbar-nav .nav-link {
+    font-family: "Verdana", sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
+
+/* 4. 左上角课题组名称 (Zheng Haining Research Group) */
+.navbar-brand {
+    font-family: 'Montserrat', -apple-system, sans-serif;
+    font-size: 1.25rem !important;
+    font-weight: bold !important;
+}
+
+/* 强制让导航栏logo和zhenghaining并排显示 */
+.navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+}
+
+/* 1. 调整 Logo 图片样式 */
+.navbar-brand img {
+    height: 68px !important;    /* 图片尺寸*/
+    width: auto !important;
+    margin-right: 10px !important;
+    margin-left: -55px !important; /* 给右侧腾出间距 */
+    display: inline-block !important;
+}
+
+/* 2. 强行在图片后面注入文字标题 */
+.navbar-brand::after {
+    content: "Flexible & Ferroic Systems Laboratory" !important; /* 手动写死文字内容 */
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+    font-size: 0.98rem !important;
+    font-weight: 550 !important;
+    margin-right: 15px !important;
+    color: #00206f !important; /* 如果导航栏是深色，请改为 #fff */
+    
+    display: inline-block !important;
+    white-space: nowrap !important; /* 确保文字不会折行 */
+    vertical-align: middle !important;
+}
+
+/* 移除主题默认页脚的内外边距，让你的蓝色页脚条能够顶满底部 */
+.site-footer {
+    padding: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+    margin-bottom: 0 !important;
+}
+
+/* 隐藏 "Published with Hugo Blox Builder" */
+.powered-by, 
+.site-footer p:last-child {
+    display: none !important;
+}
+
+
+/* 主页三个reserach卡片布局 */
+.research-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* 单个卡片样式 */
+.research-card {
+  flex: 1;
+  min-width: 300px;
+  min-height: 600px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out; /* 关键：平滑动画 */
+  border: 1px solid rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+/* 下面是主页research卡片内图片样式 */
+.research-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* 文字区域样式 */
+.card-text {
+  padding: 20px;
+}
+
+.card-text h3 {
+  font-size: 1rem !important;
+  margin-bottom: 40px;
+  color: #00206f; 
+}
+
+.card-text p {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  max-width: 350px;   
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 40px; 
+  margin-bottom: 20px; 
+  color: #666;
+}
+
+/* --- 鼠标悬浮效果 --- */
+.research-card:hover {
+  transform: translateY(-10px) scale(1.02); /* 向上浮起并微放 */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* 阴影加深 */
+  border-color: #00206f;
+}
+
+
+
+/* 增加 .universal-wrapper 类名前缀来提高优先级 */
+.universal-wrapper .view-custom-card .pub-card-container {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  background-color: #ffffff !important;
+  
+  /* 显眼的边框和圆角 */
+  border: 1px solid #e0e0e0 !important; 
+  border-radius: 12px !important;
+  padding: 24px !important;
+  margin: 20px 0 !important;
+  
+  /* 基础阴影 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+  
+  /* 动画过渡 */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* 悬停状态强制触发 */
+.universal-wrapper .view-custom-card .pub-card-container:hover {
+  transform: translateY(-8px) !important; /* 向上浮动 */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important; /* 阴影加深 */
+  border-color: #3b82f6 !important; /* 边框变色 */
+  z-index: 10 !important;
+}
+
+/* 内部文字和图片比例保持 */
+.pub-text-side {
+  flex: 3 !important;
+  padding-right: 20px !important;
+}
+
+.pub-image-side {
+  flex: 1.5 !important;
+  max-width: 280px !important;
+}
+
+.pub-image-side img {
+  width: 100% !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+
+/************** 调整publications/News中样式 *****************/
+/* 整个卡片容器定制 */
+.view-compact {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important; /* 让高度对齐，确保蓝条撑满 */
+  background: #ffffff !important;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 4px !important; /* 稍微方正一点，更显专业 */
+  padding: 24px !important;
+  margin: 10px 0 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+  
+  /* 关键：添加左侧竖着的蓝条 */
+  border-left: 5px solid #002c6b !important; /* 这里的颜色你可以根据 Logo 调整 */
+  position: relative !important;
+}
+
+/* 修改卡片之间的垂直距离 */
+.view-compact {
+  margin-top: 25px !important;    /* 增加上方间距 */
+  margin-bottom: 25px !important; /* 增加下方间距 */
+}
+
+/* 悬停效果 */
+.view-compact:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.115) !important;
+  border-left-color: #004dc0 !important; /* 悬停时蓝条变亮 */
+}
+
+/* 调整文字区域：让它更宽 */
+.view-compact .media-body {
+  flex: 2 !important;
+  padding-right: 4px !important;
+}
+
+.view-compact .article-title {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 15px !important;
+}
+
+/* title悬停下划线效果 */
+.view-compact .article-title a:hover,
+.view-compact .article-title:hover {
+  text-decoration: underline !important;
+  text-decoration-thickness: 0.5px !important; /* 下划线厚度，可根据喜好调整 */
+  text-underline-offset: 5px !important;    /* 下划线与文字的距离 */
+}
+
+/* publications中文章框的宽度尺寸 */
+.universal-wrapper, 
+.container-fluid.universal-wrapper,
+.page-body .universal-wrapper {
+  max-width: 1300px !important; /* 显著放大宽度 */
+  width: 95% !important;        /* 在窄屏下保持边缘距离 */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 确保内部的 Row 也能铺开 */
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 2. 重新分配左右比例 */
+.view-compact {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important; /* 垂直居中 */
+}
+
+/* 左侧文字区 */
+.view-compact .media-body {
+  flex: 1.5 !important; /* 降低文字区的权重 */
+  padding-right: 60px !important;
+  min-width: 0 !important;
+}
+
+/* 右侧图片容器 */
+.view-compact .ml-3 {
+  flex: 1 !important; /* 增加图片区的权重 */
+  margin-left: 0 !important;
+  max-width: 30% !important; /* 允许图片占据至多 40% 的宽度 */
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+/* 设置图片的基础状态 */
+.view-compact .ml-3 img {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important; /* 平滑过渡效果 */
+  cursor: pointer; /* 鼠标悬停时显示手型 */
+}
+
+/* 鼠标悬停在卡片上时，图片产生的动效 */
+.view-compact:hover .ml-3 img {
+  transform: scale(1.018) !important; /* 图片放大 1.01 倍 */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.025) !important; /* 阴影加深变大 */
+  z-index: 10; /* 确保放大时不会被遮挡 */
+}
+
+
+
+
+/* 下面是更改research页面的显示样式 */
+
+/* 1. 让最上方的页面大标题 "Our Research" 居中 */
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.8rem !important;  /* 减小字号，!important 确保覆盖主题默认设置 */
+  font-weight: 300;              /* 稍微减小粗细，避免笨重感 */
+  letter-spacing: 0.05rem;      /* 稍微增加字间距，更有学术质感 */
+  color: #333;                   /* 颜色微调为深灰色，比纯黑更柔和 */
+  text-shadow: 0 2px 4px rgba(214, 233, 250, 0.085), 0 2px 4px rgba(203, 207, 210, 0.085);
+}
+
+/* 针对 News 页面标题的更高优先级规则，确保样式不被主题覆盖 */
+.page-header .section-heading .news-page-title {
+  text-align: center !important;
+  margin-top: 40px !important;
+  margin-bottom: 16px !important;
+  font-size: 1.8rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.05rem !important;
+  color: #333 !important;
+  text-shadow: 0 2px 4px rgba(214, 233, 250, 0.048), 0 2px 4px rgba(203, 207, 210, 0.085) !important;
+}
+
+/* 强制覆盖 Wowchemy 默认的内容宽度限制 */
+.universal-wrapper, 
+.container-fluid,
+.article-container {
+  max-width: 75% !important; /* 或者设为 90% 使其更宽 */
+}
+
+/* 确保你的自定义容器也同步变宽 */
+.research-page-container {
+  max-width: 110% !important; 
+  width: 95% !important;
+  margin: 0 auto;
+}
+
+.research-section {
+  width: 100%; /* 让阴影框填满父容器 */
+}
+
+/* 2. 调整阴影方框内部的留白 */
+.research-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 50px 60px;  /* 增加上下左右的内边距，让内容不拥挤 */
+  margin-bottom: 50px;
+  box-shadow: 0 2px 10px rgba(14, 81, 148, 0.072);
+  border: 1px solid rgba(29, 55, 157, 0.084);
+}
+
+/* 3. 减小标题字体，增加下方间距 */
+.research-title {
+  color: #00206f !important;
+  font-size: 1.1rem;    /* 稍微减小字体 */
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 50px; /* 增加标题和正文之间的距离 */
+  border-bottom: 1px solid #001f6f72;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+/* 4. 减小正文字体，显著增加行间距 */
+.research-content p {
+  font-size: 0.80rem;   /* 稍微减小字号，显得更精致 */
+  line-height: 1.5;     /* 显著增加行间距，从1.8增加到2.0 */
+  color: #444;          /* 深灰色字 */
+  text-align: justify;  /* 两端对齐 */
+  margin-bottom: 20px;
+  letter-spacing: 0.01em; /* 稍微增加字间距，提升阅读舒适度 */
+  padding-bottom: 10px;
+}
+
+/* 基础图片样式 */
+  .research-img-hover {
+    display: block; /* 确保居中或正常流排版 */
+    border-radius: 10px; /*给图片加一点微小的圆角 */
+    /* 设置过渡动画的时间和曲线，0.3s 是最舒适的无感过渡速度 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    /* 将默认的下边距拉近*/
+    margin-bottom: 0px !important;
+  }
+
+  /* 鼠标悬停（Hover）时的状态 */
+  .research-img-hover:hover {
+    transform: scale(1.01); /* 略微放大 3%，既有明显的交互感又不会显得突兀 */
+    
+    /* 增加一层温和、深邃的高级感阴影（适合白色背景） */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.053); 
+  }
+
+
+
+  /* ==========================================
+   ⚡ F² Lab 移动端响应式专项优化（仅在屏幕宽度小于 768px 时生效）
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. 修复首页大标题溢出，使其根据屏幕自动变小 */
+    .title, 
+    h1.title,
+    .hero-title {
+        font-size: 1.8rem !important; /* 电脑端一般是 2.8rem，移动端降到 1.8rem */
+        line-height: 1.3 !important;
+        word-wrap: break-word !important;
+        white-space: normal !important; /* 允许正常换行 */
+        padding: 0 10px !important;
+    }
+
+    /* 2. 阻止英文单词被生硬截断，强制按完整单词换行 */
+    h1, h2, h3, h4, h5, h6, p, span, a, .card-title {
+        word-break: keep-all !important;  /* 阻止单词内部断开 */
+        word-wrap: break-word !important;  /* 允许长单词或 URL 在边界换行 */
+        overflow-wrap: break-word !important;
+    }
+
+    /* 3. 释放个人荣誉和招聘板块的左右被浪费的空间 */
+    .container,
+    .universal-wrapper,
+    .article-container,
+    .wg-portfolio,
+    .card {
+        padding-left: 10px !important;  /* 将原本过宽的 padding 压缩到 12px */
+        padding-right: 10px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 4. 修复招聘卡片内部的排版，给文字更多呼吸空间 */
+    .card-body, 
+    div[class*="Postdoctoral"] {
+        padding: 16px 12px !important;
+    }
+
+    /* 5. 解决顶部导航栏重叠问题 */
+    .navbar-brand, .logo {
+        max-width: 60% !important; /* 限制移动端 Logo 宽度，给汉堡菜单留空间 */
+    }
+}
+
+/* ==========================================
+   📱 F² Lab 移动端导航栏完美重构（仅手机端生效）
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. 彻底隐藏：右侧搜索图标、多余按钮以及容易溢出的长串实验室文本 */
+    .nav-search, 
+    .search-icon, 
+    #search-link,
+    .navbar-right,
+    .navbar-brand-text,
+    .navbar-brand::after {     
+        display: none !important;
+    }
+
+    /* 2. 强行规范导航栏容器：转为相对定位的弹性盒子，清除原本的错位 */
+    .navbar, 
+    .nav-container, 
+    .navbar-header {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important; /* 基础左对齐 */
+        position: relative !important;
+        height: 60px !important;
+        width: 100% !important;
+        padding: 0 16px !important;
+    }
+
+    /* 3. 三道杠汉堡按钮：强制塞到最左侧 */
+    .navbar-toggler {
+        display: block !important; 
+        order: -1 !important;        /* 让它在弹性盒子里排在第一个 */
+        margin-right: auto !important;
+        margin-left: 0 !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 8px 0 !important;
+        position: relative !important;
+        z-index: 10 !important;      /* 确保点击不被遮挡 */
+    }
+
+    /* 4. F² Lab 图标：彻底脱离文档流，在导航栏中绝对完美居中 */
+    .navbar-brand, 
+    .navbar-brand img, 
+    .logo img {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important; /* 精准移到正中央 */
+        margin: 0 !important;
+        display: block !important;
+        max-height: 40px !important; /* 限制高度，防止撑变形 */
+        width: auto !important;
+    }
+}

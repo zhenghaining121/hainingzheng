@@ -1,0 +1,46 @@
+
+
+<div class="pub-list-item view-custom-card">
+  <div class="pub-card-container">
+    
+    <!-- 左侧：文字信息 -->
+    <div class="pub-text-side">
+      <!-- 1. 标题：对应你图中的 51. 标题 -->
+      <h3 class="article-title mb-1 mt-0">
+        <a href="{{ .RelPermalink }}" style="color: #000; font-weight: 700;">
+          {{ if .Params.pub_number }}{{ .Params.pub_number }}. {{ end }}{{ .Title }}
+        </a>
+      </h3>
+
+      <!-- 2. 作者：使用系统组件自动渲染，会根据你的设置自动加粗 admin -->
+      <div class="article-metadata authors-list" style="color: #666; font-size: 0.95rem; margin-bottom: 8px;">
+        {{ partial "page_metadata_authors" . }}
+      </div>
+
+      <!-- 3. 期刊信息：Nature Commun. 2025, 16, 7692 (Article) -->
+      <div class="publication-details" style="font-size: 0.9rem; color: #555;">
+        <span class="journal-name" style="font-style: italic;">{{ .Params.publication | default "Journal Name" }}</span>
+        <span class="pub-year" style="font-weight: bold;">{{ .Date.Format "2006" }}</span>, 
+        <span class="pub-volume">{{ .Params.volume }}</span>, 
+        <span class="pub-page">{{ .Params.pages }}</span> 
+        <span class="pub-type" style="color: #777;">({{ .Params.publication_types_name | default "Article" }})</span>
+      </div>
+
+      <!-- 4. 按钮组 -->
+      <div class="article-btns">
+        {{ partial "page_links" (dict "page" . "link_types" "fulltext") }}
+      </div>
+    </div>
+
+    <!-- 右侧：图片 -->
+    <div class="pub-image-side">
+      {{ $image := (.Resources.ByType "image").GetMatch "*featured*" }}
+      {{ with $image }}
+      <a href="{{ $.RelPermalink }}">
+        <img src="{{ .RelPermalink }}" alt="{{ $.Title }}" loading="lazy">
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</div>

@@ -6,7 +6,7 @@
 # Appearance
 
 appearance:
-  theme_day: sky
+  theme_day: white
   theme_night:
   font: lato
   font_size: L
@@ -48,6 +48,10 @@ footer:
     notice: '© {year} Haining Zheng. All rights reserved.'
     license:
       enable: false  # 更改版权信息
+      allow_derivatives: false
+      share_alike: false
+      allow_commercial: false
+      notice: ''
       powered_by: false
 
 # Localization
@@ -65,6 +69,11 @@ features:
     extra_languages:
       - r
       - latex
+  features:
+  navbar:
+    display_title: true
+    logo:
+      icon: logo.png
   math:
     enable: false
   privacy_pack:
@@ -114,3 +123,4 @@ extensions:
 publications:
   date_format: January 2006
   citation_style: apa
+
