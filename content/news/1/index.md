@@ -1,6 +1,6 @@
 ---
 title: "The Official Website for Our Research Group is Now Live!"
-date: "2026-09-17"
+date: ""
 ---
 
 <div class="universal-wrapper" style="max-width: 1300px !important; margin-left: auto !important; margin-right: auto !important; padding: 40px 20px; background: #fafbfc; position: relative;">
@@ -29,7 +29,7 @@ date: "2026-09-17"
   </article>
 
   <div style="padding-right: 30px;border-top: 1px solid #e5e7eb; padding-top: 25px; margin-top: 50px; text-align: right;">
-    <a href="./news/1/" style="color: #002b7a; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#004dc0';" onmouseout="this.style.color='#002b7a';">
+    <a href="/news/" style="color: #002b7a; text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s;" onmouseover="this.style.color='#004dc0';" onmouseout="this.style.color='#002b7a';">
       Back to News List ↗
     </a>
   </div>
@@ -37,6 +37,7 @@ date: "2026-09-17"
 </div>
 
 <style>
+  /* 1. 强力抹除 Wowchemy 单篇文章模板中特有的所有时间、元数据容器 */
   .article-metadata,
   .article-date,
   time,
@@ -50,11 +51,12 @@ date: "2026-09-17"
     margin: 0 !important;
     padding: 0 !important;
 
+  /* 仅在屏幕宽度小于 768px（手机端）时生效 */
 @media (max-width: 768px) {
   article, 
   article p {
-    text-align: left !important;      
-    word-break: break-word !important; 
-    hyphens: none !important;         
+    text-align: left !important;      /* 强制左对齐，拒绝两端对齐引起的拉伸 */
+    word-break: break-word !important; /* 防止超长单词强行挤占行间距 */
+    hyphens: none !important;         /* 禁止断字 */
   }
   }
