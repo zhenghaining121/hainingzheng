@@ -20,7 +20,7 @@ title: "News"
     </div>
     <div class="ml-3" style="flex: 0 0 180px; margin-top: 0; margin-bottom: 0; display: flex; align-items: center;">
       <!-- 图片引用 -->
-      <img src="./news/1/news1.png" alt="Featured Image" 
+      <img src="../news/1/news1.png" alt="Featured Image" 
            style="width: 110%; max-height: 240px; margin-top: 25px; margin-bottom: 10px; object-fit: contain; border-radius: 4px;">
     </div>
   </div>
