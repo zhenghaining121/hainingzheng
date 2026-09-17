@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Contact Us"
 ---
 <div class="contact-container">
 
