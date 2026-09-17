@@ -11,7 +11,7 @@ sections:
       title: ""
       text: |
         <div class="academic-hero-container" style="position:relative;width:100vw;height:80vh;margin-left:calc(-50vw + 50%);margin-right:calc(-50vw + 50%);overflow:hidden;background-color:#00206f;">
-          <img src="media/bg1.png" alt="Background" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;">
+          <img src="./media/bg1.png" alt="Background" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;">
           <div class="hero-3d-wrapper" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;overflow:hidden;">
             <canvas id="hero-three-canvas" style="width:100%;height:100%;display:block;" aria-hidden="true"></canvas>
             <div class="hero-light-glow" style="position:absolute;left:50%;top:50%;width:600px;height:600px;transform:translate(-50%, -50%);background:radial-gradient(circle, rgba(149,211,255,0.35) 0%, rgba(0,32,111,0.0) 65%);pointer-events:none;filter:blur(1px);"></div>
@@ -457,21 +457,21 @@ sections:
       text: |
         <div class="research-container">
           <div class="research-card">
-            <a href="/research/"><img src="media/res1.png" alt="Research 1"style="width: 92%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
+            <a href="/research/"><img src="./media/res1.png" alt="Research 1"style="width: 92%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">Design and Synthsis of Ferroic and Magnetoelectric Crystals</h3>
               <p style="text-align: justify;">We focus our attention on providing a fundamental understanding of the interplay between structural dimensionality and ferroic properties, as well as demonstrating the implementation of magnetoelectric crystals in advanced functional electronics.</p>
             </div>
           </div>
           <div class="research-card">
-            <a href="/research/#Flexible"><img src="media/res2.png" alt="Research 2"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 25px auto 0px auto;"></a>
+            <a href="/research/#Flexible"><img src="./media/res2.png" alt="Research 2"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 25px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">AI-Driven Flexible & Wearable Magnetoelectric Devices</h3>
               <p style="text-align: justify;">Our research aims to bridge the gap between flexible magnetoelectric interfaces and intelligent signal processing. By leveraging AI-driven analytics, we develop wearable platforms capable of low-crosstalk piezoelectric sensing and closed-loop human-machine interaction.</p>
             </div>
           </div>
           <div class="research-card">
-            <a href="/research/#Spintronics"><img src="media/res3.png" alt="Research 3"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
+            <a href="/research/#Spintronics"><img src="./media/res3.png" alt="Research 3"style="width: 90%; height: 400px; object-fit: contain; display: block; margin: 20px auto 0px auto;"></a>
             <div class="card-text">
               <h3 style="margin-top: 0; margin-bottom: 25px; font-size: 1.1rem; text-align: center;">Spin Dynamics and Quantum Interference Effects</h3>
               <p style="text-align: justify;">Our work is dedicated to exploring spin quantum characteristics, with a primary focus on the spin relaxation dynamics and quantum interference effects. We aim to establish a robust foundation for next-generation quantum computing and advanced spintronic applications.</p>
@@ -486,7 +486,7 @@ sections:
           <div style="text-align:center;">
             <div style="display: inline-block; position: relative; max-width: 1300px; margin: 0 auto; padding-top: 10px;">
               <video
-                src="media/robotics.mp4"
+                src="./media/robotics.mp4"
                 controls
                 playsinline
                 autoplay
@@ -567,7 +567,7 @@ sections:
                 </div>
               </div>
               <div class="news-right-media">
-                <img src="news\1\news1.png" alt="News Image">
+                <img src="./news/1/news1.png" alt="News Image">
                 <div class="news-action-arrow">
                   <i class="fas fa-chevron-right"></i>
                 </div>
